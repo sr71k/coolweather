@@ -2,6 +2,7 @@ package com.hisun.coolweather.activity;
 
 import com.hisun.coolweather.R;
 import com.hisun.coolweather.parser.JSONParser;
+import com.hisun.coolweather.service.AutoUpdateService;
 import com.hisun.coolweather.util.HttpCallBackListenser;
 import com.hisun.coolweather.util.HttpUtils;
 
@@ -223,6 +224,9 @@ public class WeatherActivity  extends Activity implements OnClickListener{
 		currentDateText.setText(prefs.getString("current_date", ""));
 		weatherInfoLayout.setVisibility(View.VISIBLE);
 		cityNameText.setVisibility(View.VISIBLE);
+		Intent intent=new Intent(this, AutoUpdateService.class);
+		
+		startService(intent);
 		
 	}
 
